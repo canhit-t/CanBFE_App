@@ -102,41 +102,35 @@ The documentation notes that the model receives sequence-level ESM2/ChemBERTa em
 
 ---
 
-## What is not included in this repository
+# What is not included in this repository
 
-The following are intentionally excluded from Git:
+The following folders are intentionally excluded from Git:
 
-```text
-PDBbind v2018 dataset
-external hard-test dataset
-raw protein/ligand/pocket structure files
-cached ESM2 protein embeddings
-cached ChemBERTa ligand embeddings
-cached graph/complex features
-cached pocket ESM2 features
-trained model checkpoint files
-large benchmark outputs
-screening_cache/
-virtual environments
-```
+data/
+pdbbind_v2018/
+hard_test/
 
-These files are excluded because they are large, generated, licensed, or managed separately from the code repository.
+These folders are excluded because they are large, generated, licensed, or managed separately through the CanHitt OneDrive storage repository. See the section below for instructions on how to access the required data.
 
----
+# Required data access
 
-## Required data access
+Training, benchmark reproduction, and some app views require datasets, cached features, and generated analysis outputs that are not included in this GitHub repository.
 
-Training, benchmark reproduction, and some app views require datasets and cached features that are stored separately.
+These files are stored separately in the internal CanHitt OneDrive storage. To access them, ask the project supervisor, Dr. AG, for access to the CanHitt shared repository and look in:
 
-The required data/features will be stored in a separate internal Teams repository/storage location. To access them, users must request access from the project supervisor:
+AI_Handle/
 
-```text
-Dr. AG
-```
+The external data storage should contain the following zipped folders:
 
-The separate data repository/storage should contain or provide access to:
+File	Purpose
+data.zip	Cached featurized data used by the app, training, development, and visualization workflows
+pdbbind_v2018.zip	PDBbind v2018 raw dataset used for model training
+hard_test.zip	External hard-test dataset used for evaluation, benchmarking, and visualization
 
-```text
+Without these files, users can inspect the code and run limited app functionality, but they will not be able to reproduce model training, hard-test benchmarking, or all analysis views.
+
+The zipped folders provide access to some or all of the following project assets:
+
 PDBbind v2018 raw dataset
 external hard-test dataset
 processed metadata tables
@@ -148,9 +142,8 @@ cached structural graph features
 trained model checkpoints, if not regenerated locally
 benchmark prediction CSVs
 oracle/router/error-analysis outputs
-```
 
-Without these files, users can inspect the code and run limited app functionality, but they will not be able to reproduce training, hard-test benchmarking, or all analysis views.
+Do not commit these zipped folders, extracted datasets, cached features, or generated model outputs to GitHub. They are intentionally stored outside version control because of file size and data-sharing restrictions.
 
 ---
 
